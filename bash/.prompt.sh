@@ -11,6 +11,21 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
 	export TERM='xterm-256color';
 fi;
 
+prompt_cl() {
+  local path=$(echo "L2dvb2dsZS9zcmMvY2xvdWQvCg==" | base64 --decode)
+  if [[ $PWD = "${path}"* ]]; then
+      local client_name="$(g4 info | \grep "Client name: " | perl -pe 's/^Client name: //')"
+      local client_number="$(echo "${client_name}" | cut -d ":" -f 2)"
+      local client="$(echo "${client_name}" | \grep --color=always "${client_number}")"
+      local changelist_number="$(srcfs get_readonly)"
+      local changelist_description=""
+      if [ ! -z "${changelist_number}" ]; then
+        changelist_description=$(g4 pending | \grep "^Change " | head -1 | perl -pe 's/^Change \d+ : (.*)/\1/')
+        echo -e "\n${2}[CL ${changelist_number}] ${1}${changelist_description} ${1}(${client})";
+      fi
+  fi
+}
+
 prompt_git() {
 	local s='';
 	local branchName='';
@@ -116,6 +131,7 @@ PS1+="\[${hostStyle}\]\h"; # host
 PS1+="\[${white}\] in ";
 #PS1+="\[${green}\]\w"; # working directory
 PS1+="\[${yellow}\]\w"; # working directory
+PS1+="\$(prompt_cl \"${reset}\" \"${orange}\")"; # Changelist details
 PS1+="\$(prompt_git \"${white} on ${violet}\")"; # Git repository details
 PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
