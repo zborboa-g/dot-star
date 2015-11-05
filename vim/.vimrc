@@ -84,6 +84,7 @@ execute "set colorcolumn=" . join(range(121,255), ',')
 set redrawtime=10000
 
 " Vim UI
+"G set cursorline " highlight current line
 set incsearch " BUT do highlight as you type you search phrase
 set list " display unprintable characters
 set listchars=tab:>·,trail:·,extends:>,precedes:< " show tabs and trailing; works with 'list'
@@ -112,8 +113,8 @@ set tabstop=4 " number of spaces that a <Tab> in the file counts for
 set shiftwidth=4 " number of spaces to use for each step of (auto)indent
 set softtabstop=4 " number of spaces that a <Tab> counts for while performing editing operations
 
-au WinLeave * set nocursorline
-au WinEnter * set cursorline
+"G au WinLeave * set nocursorline
+"G au WinEnter * set cursorline
 set ic
 set nopaste " 'set paste' messes with autoindent
 
@@ -310,3 +311,28 @@ augroup myvimrc
     au!
     au BufWritePost .vimrc so $MYVIMRC | if has('gui_running') | so $MYVIMRC | endif
 augroup END
+
+"""
+" G
+source /usr/share/vim/g/g.vim
+
+command! -nargs=* -complete=file PEdit :!g4 edit %
+
+function! s:CheckOutFile()
+ if filereadable(expand("%")) && ! filewritable(expand("%"))
+    let s:pos = getpos('.')
+    PEdit
+    silent edit!
+    call cursor(s:pos[1:3])
+  endif
+endfunction
+au FileChangedRO * nested :call <SID>CheckOutFile()
+
+execute "set colorcolumn=" . join(range(81,255), ',')
+
+set backupcopy=no
+set noswapfile
+set nowritebackup
+
+" G
+"""

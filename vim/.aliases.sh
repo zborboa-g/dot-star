@@ -37,18 +37,18 @@ _vim() {
             # Open tabs for each file in MacVim.
             open -a MacVim "${@}"
         fi
-    elif which "gvim" &> /dev/null; then
-        xdotool=$(which xdotool)
-        if [ -z "${xdotool}" ]; then
-            echo -e '\x1b[0;93mWARNING\x1b[0m: xdotool does not seem to be installed.'
-        else
-          window_id=$(xdotool search --name ") - GVIM")
-          if [ ! -z "${window_id}" ]; then
-            xdotool windowactivate "${window_id}"
-          fi
-        fi
-
-        (gvim -f -p --remote-tab-silent "${@}" &> /dev/null &)
+    #G elif which "gvim" &> /dev/null; then
+    #G     xdotool=$(which xdotool)
+    #G     if [ -z "${xdotool}" ]; then
+    #G         echo -e '\x1b[0;93mWARNING\x1b[0m: xdotool does not seem to be installed.'
+    #G     else
+    #G       window_id=$(xdotool search --name ") - GVIM")
+    #G       if [ ! -z "${window_id}" ]; then
+    #G         xdotool windowactivate "${window_id}"
+    #G       fi
+    #G     fi
+    #G
+    #G     (gvim -f -p --remote-tab-silent "${@}" &> /dev/null &)
     else
         \vim -p "${@}"
     fi

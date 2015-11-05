@@ -38,10 +38,10 @@ source "virtualenv/.aliases.sh"
 source "bash/.settings.sh"
 source "bash/.extra.sh"
 \cd "${CWD}"
-if is_ssh; then
+#G if $ssh; then
     if [ -z "${BYOBU_WINDOW_NAME}" ]; then
         if which "byobu" &> /dev/null; then
             byobu
         fi
     fi
-fi
+#G fi
