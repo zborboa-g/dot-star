@@ -315,6 +315,7 @@ augroup END
 """
 " G
 " source /usr/share/vim/g/g.vim
+source /usr/share/vim/g/default.vim
 
 command! -nargs=* -complete=file PEdit :!g4 edit %
 
