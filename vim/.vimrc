@@ -183,9 +183,9 @@ autocmd BufRead,BufNewFile *.scss set shiftwidth=4
 
 " JavaScript
 autocmd BufRead,BufNewFile *.js set expandtab
-autocmd BufRead,BufNewFile *.js set tabstop=4
-autocmd BufRead,BufNewFile *.js set softtabstop=4
-autocmd BufRead,BufNewFile *.js set shiftwidth=4
+autocmd BufRead,BufNewFile *.js set tabstop=2
+autocmd BufRead,BufNewFile *.js set softtabstop=2
+autocmd BufRead,BufNewFile *.js set shiftwidth=2
 autocmd BufRead,BufNewFile *.js set autoindent
 autocmd BufRead,BufNewFile *.js match BadWhitespace /^\t\+/
 autocmd BufRead,BufNewFile *.js match BadWhitespace /\s\+$/
