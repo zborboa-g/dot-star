@@ -5,7 +5,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-syntastic/syntastic'
+"Plugin 'vim-syntastic/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -177,9 +177,9 @@ autocmd BufWritePre *.txt :%s/\s\+$//e
 highlight BadWhitespace ctermbg=red guibg=red
 
 " Sass
-autocmd BufRead,BufNewFile *.scss set tabstop=4
-autocmd BufRead,BufNewFile *.scss set softtabstop=4
-autocmd BufRead,BufNewFile *.scss set shiftwidth=4
+autocmd BufRead,BufNewFile *.scss set shiftwidth=2
+autocmd BufRead,BufNewFile *.scss set softtabstop=2
+autocmd BufRead,BufNewFile *.scss set tabstop=2
 
 " JavaScript
 autocmd BufRead,BufNewFile *.js set expandtab
@@ -216,31 +216,33 @@ autocmd BufRead,BufNewFile *.yaml,*.yml set tabstop=2
 autocmd BufRead,BufNewFile *.yaml,*.yml set softtabstop=2
 autocmd BufRead,BufNewFile *.yaml,*.yml set shiftwidth=2
 
-function! <SID>PythonSave()
-    " Check python syntax.
-    let tmpfile = tempname()
-    silent execute "write! " . tmpfile
-    let command = "python3 -m py_compile '" . tmpfile . "'"
-    let output = system(command . " 2>&1")
-    if output != ''
-        let curfile = bufname("%")
-        let output = substitute(output, fnameescape(tmpfile), fnameescape(curfile), "g")
-        echo output
-    endif
-    call delete(tmpfile)
-
-    " Save cursor position.
-    let l = line(".")
-    let c = col(".")
-
-    " Strip trailing whitespace.
-    %s/\s\+$//e
-
-    " Restore cursor position.
-    call cursor(l, c)
-endfunction
-
 autocmd FileType python autocmd BufWritePre <buffer> :call <SID>PythonSave()
+"
+"function! <SID>PythonSave()
+"    " Check python syntax.
+"    let tmpfile = tempname()
+"    silent execute "write! " . tmpfile
+"    let command = "python -c \"__import__('py_compile').compile(r'" . tmpfile . "')\""
+"    let output = system(command . " 2>&1")
+"    if output != ''
+"        let curfile = bufname("%")
+"        let output = substitute(output, fnameescape(tmpfile), fnameescape(curfile), "g")
+"        echo output
+"    endif
+"    call delete(tmpfile)
+"
+"    " Save cursor position.
+"    let l = line(".")
+"    let c = col(".")
+"
+"    " Strip trailing whitespace.
+"    %s/\s\+$//e
+"
+"    " Restore cursor position.
+"    call cursor(l, c)
+"endfunction
+"
+"autocmd FileType python autocmd BufWritePre <buffer> :call <SID>PythonSave()
 
 " Move the directory for the backup file.
 set backupdir=~/.vim/backup/
