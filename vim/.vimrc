@@ -91,7 +91,7 @@ set listchars=tab:>·,trail:·,extends:>,precedes:< " show tabs and trailing; wo
 set number " turn on line numbers
 set numberwidth=5 " We are good up to 99999 lines
 set ruler " display the cursor position in the status
-set scrolloff=3 " Keep X lines (top/bottom) before the horizontal window border
+set scrolloff=0 " Keep X lines (top/bottom) before the horizontal window border
 set showtabline=2 " always show tabbar
 set title " Show the filename in the window's titlebar
 set nowrap " Don't wrap long lines
@@ -216,8 +216,6 @@ autocmd BufRead,BufNewFile *.yaml,*.yml set tabstop=2
 autocmd BufRead,BufNewFile *.yaml,*.yml set softtabstop=2
 autocmd BufRead,BufNewFile *.yaml,*.yml set shiftwidth=2
 
-autocmd FileType python autocmd BufWritePre <buffer> :call <SID>PythonSave()
-"
 "function! <SID>PythonSave()
 "    " Check python syntax.
 "    let tmpfile = tempname()

@@ -475,6 +475,7 @@ alias ip="_ip"
 
 clipboard() {
     # Remove trailing newline from stdin and copy it to the clipboard.
+    export DISPLAY=:0
     if which "xsel" &> /dev/null; then
         perl -p -e 'chomp if eof' | xsel --clipboard
     elif which "pbcopy" &> /dev/null; then
