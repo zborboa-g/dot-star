@@ -219,6 +219,9 @@ autocmd BufRead,BufNewFile *.yaml,*.yml set shiftwidth=2
 " TypeScript
 autocmd BufReadPost *.ts set filetype=javascript
 
+" TypeScript
+autocmd BufReadPost *.ts set filetype=javascript
+
 "function! <SID>PythonSave()
 "    " Check python syntax.
 "    let tmpfile = tempname()
