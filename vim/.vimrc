@@ -202,9 +202,9 @@ autocmd BufRead,BufNewFile *.php set textwidth=120
 " Python, PEP-008 except textwidth.
 autocmd BufRead,BufNewFile *.py,*.pyw set expandtab
 autocmd BufRead,BufNewFile *.py,*.pyw set textwidth=120
-autocmd BufRead,BufNewFile *.py,*.pyw set tabstop=4
-autocmd BufRead,BufNewFile *.py,*.pyw set softtabstop=4
-autocmd BufRead,BufNewFile *.py,*.pyw set shiftwidth=4
+autocmd BufRead,BufNewFile *.py,*.pyw set tabstop=2
+autocmd BufRead,BufNewFile *.py,*.pyw set softtabstop=2
+autocmd BufRead,BufNewFile *.py,*.pyw set shiftwidth=2
 autocmd BufRead,BufNewFile *.py,*.pyw set autoindent
 autocmd BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 autocmd BufRead,BufNewFile *.py,*.pyw match BadWhitespace /\s\+$/
