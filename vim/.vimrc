@@ -199,9 +199,9 @@ autocmd BufRead,BufNewFile *.php set softtabstop=4
 autocmd BufRead,BufNewFile *.php set shiftwidth=4
 autocmd BufRead,BufNewFile *.php set textwidth=120
 
-" Python, PEP-008 except textwidth.
+" Python, PEP-008.
 autocmd BufRead,BufNewFile *.py,*.pyw set expandtab
-autocmd BufRead,BufNewFile *.py,*.pyw set textwidth=120
+autocmd BufRead,BufNewFile *.py,*.pyw set textwidth=80
 autocmd BufRead,BufNewFile *.py,*.pyw set tabstop=2
 autocmd BufRead,BufNewFile *.py,*.pyw set softtabstop=2
 autocmd BufRead,BufNewFile *.py,*.pyw set shiftwidth=2
