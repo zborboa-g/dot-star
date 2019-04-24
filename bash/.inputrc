@@ -11,4 +11,8 @@ set visible-stats on
 
 # Use vi key bindings with readline compatible applications.
 set editing-mode vi
-set keymap vi
+
+# Disabled as using `set keymap vi' causes history-search-backward in ipython to no longer work.
+# https://stackoverflow.com/questions/16350245/ipythons-history-search-backward-not-working-as-desired
+# https://stackoverflow.com/questions/10394302/how-do-i-use-vi-keys-in-ipython-under-nix
+# set keymap vi
