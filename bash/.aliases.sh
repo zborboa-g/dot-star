@@ -1047,8 +1047,6 @@ mv() {
     fi
 }
 
-alias rp="realpath"
-
 # Wrap jq command to allow debugging a jq filter interactively.
 # To use, run `jq $filename'. Press return when the desired filter has been
 # entered. The entered filter will be displayed and put in the clipboard for
