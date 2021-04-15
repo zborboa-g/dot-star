@@ -743,7 +743,6 @@ alias file="get_file_info"
 # Comment to because it's messing up code completion.
 # Temporarily disable alias "type" as it makes bash-completion slow.
 # alias type="get_file_info"
-
 alias ty="get_file_info"
 
 is_ssh() {
@@ -1047,6 +1046,8 @@ mv() {
     fi
 }
 
+alias rp="realpath"
+
 # Wrap jq command to allow debugging a jq filter interactively.
 # To use, run `jq $filename'. Press return when the desired filter has been
 # entered. The entered filter will be displayed and put in the clipboard for
@@ -1102,5 +1103,3 @@ alias man="_man"
 if [[ ! -z "${BYOBU_WINDOW_NAME}" ]]; then
     alias detach="/usr/lib/byobu/include/tmux-detach-all-but-current-client"
 fi
-
-alias rp="realpath"

@@ -41,7 +41,6 @@ if [ ! -L "${HOME}/.colordiffrc" ]; then
     ln -v -s "${DOT_STAR_ROOT}/colordiff/.colordiffrc" "${HOME}/.colordiffrc"
 fi
 
-# Disable IPython's "Do you really want to exit ([y]/n)?".
 install_ipython() {
     sudo easy_install pip
     pip install --upgrade pip

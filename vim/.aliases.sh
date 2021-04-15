@@ -37,7 +37,7 @@ _vim() {
             # Open tabs for each file in MacVim.
             # Be sure to set MacVim > Preferences > Open files from applications: in the current window with a tab for
             # each file so that subsequent files are opened in new tabs in the existing window.
-            open -a MacVim.app "${@}"
+            open -a MacVim "${@}"
         fi
     #G elif which "gvim" &> /dev/null; then
     #G     xdotool=$(which xdotool)
